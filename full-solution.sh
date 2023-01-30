@@ -1,7 +1,6 @@
 #!/bin/bash
 # delete old git repo
 # delete previous work
-rm -rf .git
 rm -rf practice
 
 # Configure git settings
@@ -109,3 +108,17 @@ git log-graph
 
 echo "Now lets cause a merge conflict!"
 read -p "Press any key to continue... " -n1 -s
+
+git branch feature2
+git checkout feature2
+echo "3. Green Eggs and Ham" >> recipes.txt
+git commit -am "F4 - Added Recipe"
+
+git checkout master
+echo "3. Grinch Donuts" >> recipes.txt
+git commit -am "C4 - Added Conflicting Recipe"
+
+echo "We are now ready for our first merge conflict"
+echo "Please type in: cd practice; git merge feature2"
+echo "Pleaes resolve the conflict and then make a new commit!"
+
